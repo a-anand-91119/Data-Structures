@@ -3,9 +3,15 @@ package com.anand.datastructures;
 import com.anand.datastructures.arrays.DynamicArray;
 import com.anand.datastructures.linkedlist.DoublyLinkedList;
 import com.anand.datastructures.linkedlist.SingleLinkedList;
+import com.anand.datastructures.stack.ArrayStack;
+import com.anand.datastructures.stack.LinkedStack;
+import com.anand.datastructures.stack.Stack;
 
 public class DriverClass {
 	
+	private static final int ARRAY_STACK = 0;
+	private static final int LINKED_STACK = 1;
+
 	public static void main(String[] args) {
 		
 		displayHeader("Dynamic Arrays");
@@ -20,8 +26,50 @@ public class DriverClass {
 		doublyLinkedListCheck();
 		displayFooter();
 		
+		displayHeader("Array Stack");
+		stackCheck(ARRAY_STACK);
+		displayFooter();
+		
+		displayHeader("Linked Stack");
+		stackCheck(LINKED_STACK);
+		displayFooter();
+		
 	}
 	
+	private static void stackCheck(int stackType) {
+		Stack<Integer> stack = null;
+		if(stackType == 0)
+			stack = new ArrayStack<Integer>();
+		else
+			stack = new LinkedStack<Integer>();
+		
+		System.out.println("isEmpty: " + stack.isEmpty());
+		try {
+		System.out.println("pop: " + stack.pop());
+		}catch(Exception e) {System.out.println(e);}
+		try {
+		System.out.println("peek: " + stack.peek());
+		}catch(Exception e) {System.out.println(e);}
+		System.out.println("size: " + stack.size());
+		
+		stack.push(10);
+		stack.push(20);
+		stack.push(30);
+		stack.push(40);
+		stack.push(50);
+		
+		System.out.println(stack);
+		
+		stack.pop();
+		stack.pop();
+		stack.pop();
+		
+		System.out.println(stack);
+		
+		System.out.println("Size: " + stack.size());
+		
+	}
+
 	private static void displayHeader(String heading) {
 		System.out.println("*************************************************");
 		System.out.println("***********\t  " + heading + "  \t*********");
