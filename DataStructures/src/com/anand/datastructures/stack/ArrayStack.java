@@ -18,6 +18,12 @@ public class ArrayStack<T> implements Stack<T>, Iterable<T> {
 	}
 
 	@Override
+	public void clear() {
+		while(!isEmpty())
+			pop();
+	}
+	
+	@Override
 	public int size() {
 		return arrayStack.size();
 	}

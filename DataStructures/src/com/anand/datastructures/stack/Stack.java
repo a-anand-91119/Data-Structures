@@ -12,4 +12,6 @@ public interface Stack<T> {
 
 	public T pop();
 	
+	public void clear();
+	
 }

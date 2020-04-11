@@ -17,6 +17,12 @@ public class LinkedStack<T> implements Stack<T>, Iterable<T> {
 	}
 
 	@Override
+	public void clear() {
+		while(!linkedStack.isEmpty())
+			pop();
+	}
+	
+	@Override
 	public int size() {
 		return linkedStack.size();
 	}

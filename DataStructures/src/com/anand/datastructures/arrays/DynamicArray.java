@@ -26,7 +26,7 @@ public class DynamicArray<T> implements Iterable<T> {
 	}
 
 	public boolean isEmpty() {
-		return array.length == 0;
+		return arrayLength == 0;
 	}
 
 	public T get(int index) {
